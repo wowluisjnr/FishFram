@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-navbar>      
+      <ion-buttons end *ngIf="showSkip">
+        <button ion-button color="primary" (click)="startApp()">Pular</button>
+      </ion-buttons>
+        
+      <ion-title>Apresentação</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <ion-slides pager="true" (ionSlideWillChange)="onSlideChangeStart($event)">
+      <ion-slide *ngFor="let slidePage of slidePages">
+        
+        <img [src]="slidePage.image" class="slide-image">
+        <h2 class="slide-title" [innerHTML]="slidePage.title"></h2>
+        <p [innerHTML]="slidePage.description"></p>
+      </ion-slide>
+  
+      <ion-slide>
+        <img src="assets/imgs/ready.png">
+        <h2 class="slide-title">Pronto para Começar?</h2>
+        <button ion-button icon-end large clear (click)="startApp()">
+          Continue 
+          <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+      </ion-slide>
+      
+    </ion-slides>
+  
+  </ion-content>
+  
